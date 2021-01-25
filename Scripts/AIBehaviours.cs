@@ -7,7 +7,8 @@ public class AIBehaviours : MonoBehaviour
 {
     public float moveSpeed = 2f;
 
-    public string AIStatus;
+    public Toggle AIStatus;
+    public Text statusEnable;
 
     public Transform playerTarget;
 
@@ -19,14 +20,16 @@ public class AIBehaviours : MonoBehaviour
 
     private void Update()
     {
-        if(AIStatus == "Flee")
-        {
-            Flee();
-        }
-
-        else if(AIStatus == "Seek")
+        if(AIStatus.isOn)
         {
             Seek();
+            statusEnable.text = "Seek Enabled";
+        }
+
+        else
+        {
+            Flee();
+            statusEnable.text = "Flee Enabled";
         }
     }
 

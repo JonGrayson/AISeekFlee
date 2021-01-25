@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour {
 
     public float moveSpeed;
     public Toggle Controller;
+    public Text controllerEnabled;
 
     public float forwardForce = 500f;
     public float sidewaysForce = 500f;
@@ -45,10 +46,12 @@ public class PlayerMovement : MonoBehaviour {
         if(Controller.isOn == true)
         {
             Move();
+            controllerEnabled.text = "Non-Kinematic Controller Enabled";
         }
         else 
         {
             FixedUpdate();
+            controllerEnabled.text = "Kinematic Controller Enabled";
         }
     }
 
